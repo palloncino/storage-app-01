@@ -22,6 +22,7 @@ import Loading from "../../components/Loading/index.js";
 import PageHeader from "../../components/PageHeader/index.tsx";
 import { ROUTES } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext.js";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 import { ClientType } from '../../types/index.ts';
 
 const HeadContainer = styled.div`
@@ -89,7 +90,7 @@ const ClientPage: FC = () => {
     }
 
     return (
-        <>
+        <WhitePaperContainer>
             <Container maxWidth="lg">
 
                 <PageHeader title={t("ClientPageTitle")} description={`${theClient.firstName} ${theClient.lastName}`} margin={'0'} />
@@ -171,7 +172,7 @@ const ClientPage: FC = () => {
                     </Dialog>
 
             </Container>
-        </>
+        </WhitePaperContainer>
     );
 };
 

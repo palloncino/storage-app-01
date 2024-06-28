@@ -9,6 +9,7 @@ import FlashMessage from "../../components/FlashMessage";
 import Loading from "../../components/Loading";
 import { ROUTES, getClientsFiltersConfig } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 import applyFilters from "../../utils/apply-filters";
 import { isAdmin } from "../../utils/isWho";
 
@@ -61,7 +62,7 @@ const ClientListPage: React.FC = () => {
     }, [loadingClients, clients, filters]);
 
     return (
-        <>
+        <WhitePaperContainer>
             <StyledContainer maxWidth="lg">
                 {successMessage && (
                     <FlashMessage message={successMessage} type="success" />
@@ -112,7 +113,7 @@ const ClientListPage: React.FC = () => {
                     </>
                 )}
             </StyledContainer>
-        </>
+        </WhitePaperContainer>
     );
 };
 

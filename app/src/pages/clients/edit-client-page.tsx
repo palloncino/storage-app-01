@@ -8,6 +8,7 @@ import Loading from "../../components/Loading/index.js";
 import PageHeader from "../../components/PageHeader/index.tsx";
 import { ROUTES, SectionBorderContainer } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext.js";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 import { ClientType } from '../../types/index.ts';
 
 const EditClientPage: React.FC = () => {
@@ -60,22 +61,24 @@ const EditClientPage: React.FC = () => {
     }
 
     return (
-        <Container maxWidth={'lg'}>
-            <PageHeader title={t("EditingClient")} description={`${theClient.firstName} ${theClient.lastName}`} />
-            <SectionBorderContainer>
-                <Box my={4}>
-                    {errorMessage && <FlashMessage message={errorMessage} type="error" />}
-                    {message && <FlashMessage message={message} type="success" />}
-                    <Typography component="p" gutterBottom>
-                        {t("ID")}: {theClient.id}.{" "}
-                        <Link to={ROUTES(theClient.id).clientPage} style={{ textDecoration: "none" }}>
-                            {t("ViewDetails")}.
-                        </Link>
-                    </Typography>
-                    <EditClient client={theClient} onSave={handleSave} onCancel={handleCancel} />
-                </Box>
-            </SectionBorderContainer>
-        </Container>
+        <WhitePaperContainer>
+            <Container maxWidth={'lg'}>
+                <PageHeader title={t("EditingClient")} description={`${theClient.firstName} ${theClient.lastName}`} margin={'0'} />
+                <SectionBorderContainer>
+                    <Box my={4}>
+                        {errorMessage && <FlashMessage message={errorMessage} type="error" />}
+                        {message && <FlashMessage message={message} type="success" />}
+                        <Typography component="p" gutterBottom>
+                            {t("ID")}: {theClient.id}.{" "}
+                            <Link to={ROUTES(theClient.id).clientPage} style={{ textDecoration: "none" }}>
+                                {t("ViewDetails")}.
+                            </Link>
+                        </Typography>
+                        <EditClient client={theClient} onSave={handleSave} onCancel={handleCancel} />
+                    </Box>
+                </SectionBorderContainer>
+            </Container>
+        </WhitePaperContainer>
     );
 };
 

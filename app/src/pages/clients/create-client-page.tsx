@@ -8,6 +8,7 @@ import Loading from "../../components/Loading/index.js";
 import { useAppState } from "../../state/stateContext.js";
 import { ClientType } from "../../types/index.ts";
 import PageHeader from "../../components/PageHeader/index.tsx";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 
 const StyledContainer = styled(Container)`
   margin-top: 32px;
@@ -92,14 +93,14 @@ const CreateClientPage: React.FC = () => {
   }
 
   return (
-    <>
+    <WhitePaperContainer>
       <StyledContainer maxWidth="md">
         <Box my={4}>
           {addClientError && (
             <FlashMessage message={addClientError} type="error" />
           )}
           {message && <FlashMessage message={message} type="success" />}
-          <PageHeader title={t("CreateNewClient")} />
+          <PageHeader title={t("CreateNewClient")} margin={'0'} />
           <CreateClient
             client={client}
             setClient={setClient}
@@ -109,7 +110,7 @@ const CreateClientPage: React.FC = () => {
           />
         </Box>
       </StyledContainer>
-    </>
+    </WhitePaperContainer>
   );
 };
 
