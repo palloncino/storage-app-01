@@ -10,6 +10,7 @@ import { ROUTES, SectionBorderContainer } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext.js";
 import { UserType } from '../../types/index.ts';
 import PageHeader from "../../components/PageHeader/index.tsx";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 
 const EditUserPage: React.FC = () => {
   const { t } = useTranslation();
@@ -61,21 +62,23 @@ const EditUserPage: React.FC = () => {
   }
 
   return (
-    <Container maxWidth={'lg'}>
-      <PageHeader title={t("EditingUser")} description={`${theUser.firstName} ${theUser.lastName}`} />
-      <SectionBorderContainer>
-        {errorMessage && <Box my={2}><FlashMessage message={errorMessage} type="error" /></Box>}
-        {message && <Box my={2}><FlashMessage message={message} type="success" /></Box>}
+    <WhitePaperContainer>
+      <Container maxWidth={'lg'}>
+        <PageHeader title={t("EditUser")} description={`${theUser.firstName} ${theUser.lastName}`} margin={'0'} />
+        <SectionBorderContainer>
+          {errorMessage && <Box my={2}><FlashMessage message={errorMessage} type="error" /></Box>}
+          {message && <Box my={2}><FlashMessage message={message} type="success" /></Box>}
 
-        <Typography component="p" gutterBottom>
-          {t("ID")}: {theUser.id}.{" "}
-          <Link to={ROUTES(theUser.id).userPage} style={{ textDecoration: "none" }}>
-            {t("ViewDetails")}.
-          </Link>
-        </Typography>
-        <EditUser user={theUser} onSave={handleSave} onCancel={handleCancel} />
-      </SectionBorderContainer>
-    </Container>
+          <Typography component="p" gutterBottom>
+            {t("ID")}: {theUser.id}.{" "}
+            <Link to={ROUTES(theUser.id).userPage} style={{ textDecoration: "none" }}>
+              {t("ViewDetails")}.
+            </Link>
+          </Typography>
+          <EditUser user={theUser} onSave={handleSave} onCancel={handleCancel} />
+        </SectionBorderContainer>
+      </Container>
+    </WhitePaperContainer>
   );
 };
 

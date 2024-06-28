@@ -18,6 +18,7 @@ import PageHeader from "../../components/PageHeader/index.tsx";
 import { ROUTES, SectionBorderContainer } from "../../constants/index.ts";
 import fallbackProduct from "../../media/fallbackProduct.png";
 import { useAppState } from "../../state/stateContext";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 import { isAdmin } from "../../utils/isWho";
 
 const ProductPage: React.FC = () => {
@@ -108,7 +109,7 @@ const ProductPage: React.FC = () => {
   const components = Array.isArray(theProduct.components) ? theProduct.components : [];
 
   return (
-    <>
+    <WhitePaperContainer>
       <Container maxWidth={'lg'}>
         <PageHeader title={`${theProduct.name}`} description={t("ProductPageDescription")} margin={'0'} />
         <SectionBorderContainer>
@@ -161,7 +162,7 @@ const ProductPage: React.FC = () => {
           </Grid>
         </SectionBorderContainer>
       </Container>
-    </>
+    </WhitePaperContainer>
   );
 };
 

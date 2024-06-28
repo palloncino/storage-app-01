@@ -1,12 +1,13 @@
+import { Container } from "@mui/material";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Loading from "../../components/Loading/index.js";
 import PageHeader from "../../components/PageHeader/index.tsx";
 import ProductForm from "../../components/ProductForm/index.tsx";
 import { useAppState } from "../../state/stateContext.js";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 import { ProductType } from "../../types/index.ts"; // Ensure this path matches your project structure
 import { dataURLtoFile } from "../../utils/base64Utils.ts";
-import { Container } from "@mui/material";
 
 const CreateProductPage: React.FC = () => {
   const { t } = useTranslation();
@@ -60,7 +61,7 @@ const CreateProductPage: React.FC = () => {
   }
 
   return (
-    <>
+    <WhitePaperContainer>
       <Container>
         <PageHeader title={t('CreateProduct')} margin={'0'} />
         <ProductForm
@@ -71,7 +72,7 @@ const CreateProductPage: React.FC = () => {
           successMessage={message}
         />
       </Container>
-    </>
+    </WhitePaperContainer>
   );
 };
 

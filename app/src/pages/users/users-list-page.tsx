@@ -11,6 +11,7 @@ import { ROUTES, getUsersFiltersConfig } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext";
 import applyFilters from "../../utils/apply-filters";
 import { isAdmin } from "../../utils/isWho";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 
 const StyledContainer = styled(Container)`
   margin-top: 32px;
@@ -58,7 +59,7 @@ const UsersListPage: React.FC = () => {
   }, [loadingUsers, users, filters]);
 
   return (
-    <>
+    <WhitePaperContainer>
       <StyledContainer maxWidth="lg">
         {successMessage && (
           <FlashMessage message={successMessage} type="success" />
@@ -109,7 +110,7 @@ const UsersListPage: React.FC = () => {
           </>
         )}
       </StyledContainer>
-    </>
+    </WhitePaperContainer>
   );
 };
 

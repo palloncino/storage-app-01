@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PageHeader from "../../components/PageHeader/index.tsx";
 import { ROUTES, SectionBorderContainer } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 
 const HeadContainer = styled.div`
   display: flex;
@@ -37,9 +38,9 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <>
+    <WhitePaperContainer>
       <Container>
-        <PageHeader title={t("ProfilePageTitle")} description={t("ProfilePageDescription")} />
+        <PageHeader title={t("ProfilePageTitle")} description={t("ProfilePageDescription")} margin={'0'} />
         <SectionBorderContainer>
           <Card sx={{ width: "100%" }}>
             <CardContent>
@@ -80,7 +81,7 @@ const Profile: React.FC = () => {
           </Card>
         </SectionBorderContainer>
       </Container>
-    </>
+    </WhitePaperContainer>
   );
 };
 

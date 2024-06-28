@@ -9,6 +9,7 @@ import { SectionBorderContainer } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext";
 import { ProductType } from "../../types/index.ts";
 import { dataURLtoFile } from "../../utils/base64Utils.ts";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 
 const EditProductPage = () => {
   const { t } = useTranslation();
@@ -68,7 +69,7 @@ const EditProductPage = () => {
   }
 
   return (
-    <>
+    <WhitePaperContainer>
       <Container maxWidth={'lg'}>
         <PageHeader title={t("EditProductPageTitle")} description={t("EditProductPageDescription")} margin={'0'} />
         <SectionBorderContainer>
@@ -91,7 +92,7 @@ const EditProductPage = () => {
           )}
         </SectionBorderContainer>
       </Container>
-    </>
+    </WhitePaperContainer>
   );
 };
 

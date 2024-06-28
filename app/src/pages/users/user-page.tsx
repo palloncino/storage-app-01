@@ -23,6 +23,7 @@ import PageHeader from "../../components/PageHeader/index.tsx";
 import { ROUTES, SectionBorderContainer } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext.js";
 import { UserType } from '../../types/index.ts';
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 
 const HeadContainer = styled.div`
   display: flex;
@@ -101,7 +102,7 @@ const UserPage: FC = () => {
   }
 
   return (
-    <>
+    <WhitePaperContainer>
       <Container maxWidth={'lg'}>
         <PageHeader title={t("UserPageTitle")} description={t("UserPageDescription")} margin={'0'} />
           <StyledCard>
@@ -167,7 +168,7 @@ const UserPage: FC = () => {
             </DialogTitle>
           </Dialog>
       </Container>
-    </>
+    </WhitePaperContainer>
   );
 };
 

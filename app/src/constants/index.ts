@@ -3,16 +3,7 @@ import i18n from "../i18n"; // Ensure correct path to your i18n setup
 import { Company } from "../types";
 
 export const getUsersFiltersConfig = () => [
-  { name: "search", type: "text", placeholder: i18n.t("Search...") },
-  {
-    name: "role",
-    type: "select",
-    options: [
-      { value: "all", label: i18n.t("AllRoles") },
-      { value: "admin", label: i18n.t("Admin") },
-      { value: "user", label: i18n.t("User") },
-    ],
-  },
+  { name: "search", type: "text", placeholder: i18n.t("Search...") }
 ];
 
 export const getClientsFiltersConfig = () => [

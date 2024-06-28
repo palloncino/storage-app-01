@@ -18,6 +18,7 @@ import ProductGrid from "../../components/ProductGrid";
 import ProductList from "../../components/ProductList/index.tsx";
 import { ROUTES, getProductsFiltersConfig } from "../../constants/index.ts";
 import { useAppState } from "../../state/stateContext";
+import { WhitePaperContainer } from "../../styled-components/index.tsx";
 import applyFilters from "../../utils/apply-filters";
 import { isAdmin } from "../../utils/isWho.js";
 
@@ -70,7 +71,7 @@ function ProductListPage() {
   }, [loadingProducts, products, filters]);
 
   return (
-    <>
+    <WhitePaperContainer>
       <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         {successMessage && (
           <Box sx={{ pt: 2, mb: 2 }}>
@@ -146,7 +147,7 @@ function ProductListPage() {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </WhitePaperContainer>
   );
 }
 
