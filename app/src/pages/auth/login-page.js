@@ -37,7 +37,7 @@ function LoginPage() {
   };
 
   return (
-      <WhitePaperContainer id="asd">
+      <WhitePaperContainer>
         <Box
           sx={{
             display: "flex",

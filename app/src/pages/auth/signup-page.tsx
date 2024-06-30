@@ -17,6 +17,7 @@ import styled from 'styled-components';
 import FlashMessage from "../../components/FlashMessage";
 import PageHeader from "../../components/PageHeader/index.tsx";
 import { useAppState } from "../../state/stateContext";
+import { WhitePaperContainer } from '../../styled-components/index.tsx';
 
 interface UserType {
   username: string;
@@ -88,15 +89,17 @@ const SignupPage: React.FC = () => {
   };
 
   return (
-    <>
+    <WhitePaperContainer>
       <StyledContainer maxWidth="lg">
 
         {signupError && <FlashMessage message={signupError} type="error" />}
         {signupSuccessMessage && (
-          <FlashMessage message={signupSuccessMessage} type="success" />
+          <Box pt={2}>
+            <FlashMessage message={signupSuccessMessage} type="success" />
+          </Box>
         )}
         <Box>
-          <PageHeader title={t("Register")} margin={"0"} />
+          <PageHeader title={t("Register")} margin={"0"} /> 
 
           <StyledForm onSubmit={handleSubmit} noValidate>
             <Grid container spacing={3}>
@@ -209,7 +212,7 @@ const SignupPage: React.FC = () => {
           </StyledForm>
         </Box>
       </StyledContainer>
-    </>
+    </WhitePaperContainer>
   );
 }
 
