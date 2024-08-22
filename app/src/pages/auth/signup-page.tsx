@@ -2,13 +2,8 @@ import {
   Box,
   Button,
   Container,
-  FormControl,
   Grid,
-  InputLabel,
   Link,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
   TextField
 } from "@mui/material";
 import React, { ChangeEvent, FormEvent, useState } from "react";
@@ -23,7 +18,6 @@ interface UserType {
   username: string;
   firstName: string;
   lastName: string;
-  companyName: "sermixer" | "s2_truck_service";
   email: string;
   role: string;
   password: string;
@@ -61,9 +55,8 @@ const SignupPage: React.FC = () => {
     username: "",
     firstName: "",
     lastName: "",
-    companyName: "sermixer",
     email: "",
-    role: "user",
+    role: "admin",
     password: "",
   });
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -71,10 +64,6 @@ const SignupPage: React.FC = () => {
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSelectChange = (event: SelectChangeEvent<"sermixer" | "s2_truck_service">) => {
-    setFormData({ ...formData, companyName: event.target.value as "sermixer" | "s2_truck_service" });
   };
 
   const handleSubmit = async (event: FormEvent) => {
@@ -92,14 +81,18 @@ const SignupPage: React.FC = () => {
     <WhitePaperContainer>
       <StyledContainer maxWidth="lg">
 
-        {signupError && <FlashMessage message={signupError} type="error" />}
+        {signupError &&
+          <Box pt={2}>
+            <FlashMessage message={signupError} type="error" />
+          </Box>
+        }
         {signupSuccessMessage && (
           <Box pt={2}>
             <FlashMessage message={signupSuccessMessage} type="success" />
           </Box>
         )}
         <Box>
-          <PageHeader title={t("Register")} margin={"0"} /> 
+          <PageHeader title={t("Register")} margin={"0"} />
 
           <StyledForm onSubmit={handleSubmit} noValidate>
             <Grid container spacing={3}>
@@ -138,21 +131,6 @@ const SignupPage: React.FC = () => {
                   value={formData.lastName}
                   onChange={handleTextChange}
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl fullWidth>
-                  <InputLabel id="companyName-label">{t("Company")}</InputLabel>
-                  <Select
-                    labelId="companyName-label"
-                    id="companyName"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleSelectChange}
-                  >
-                    <MenuItem value="sermixer">Sermixer</MenuItem>
-                    <MenuItem value="s2_truck_service">S2 Truck Service</MenuItem>
-                  </Select>
-                </FormControl>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -196,7 +174,6 @@ const SignupPage: React.FC = () => {
             <Box my={4} width={'100%'}>
               <StyledButton
                 type="submit"
-                fullWidth
                 variant="contained"
               >
                 {t("Register")}

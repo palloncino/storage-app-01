@@ -122,10 +122,6 @@ function Navbar() {
     </>
   );
 
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
   const renderUserLinks = () => (
     <>
       <UserDisplay>
@@ -135,7 +131,7 @@ function Navbar() {
           </UserName>
           <UserCompany>
             {user
-              ? `${user.role}, ${capitalizeFirstLetter(user.companyName)}`
+              ? `${user.role}`
               : ""}
           </UserCompany>
         </UserInfo>
